@@ -1,0 +1,10 @@
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\bin\Debug\SalesTaxes.exe.config
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\bin\Debug\SalesTaxes.exe
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\bin\Debug\SalesTaxes.pdb
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.csprojAssemblyReference.cache
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.Form1.resources
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.Properties.Resources.resources
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.csproj.GenerateResource.cache
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.csproj.CoreCompileInputs.cache
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.exe
+C:\Users\Perron\Source\Repos\DealerOnCodingTest\SalesTaxes\obj\Debug\SalesTaxes.pdb
