@@ -9,23 +9,49 @@ namespace SalesTaxes
     class SaleItem
     {
         public string title;
-        public float price;
-        public float tax;
-        public bool getsUSTax;
-        public bool getsImportTax;
+        public decimal fullPrice;
+        public decimal tax;
+        public int count;
+        public bool taxable;
 
-        public SaleItem(string t, float p)
+        public SaleItem(string t, decimal p, bool taxable)
         {
             title = t;
-            price = p;
-            tax = 0;
-            getsUSTax = false;
-            getsImportTax = false;
+            tax = SalesTax(Math.Round(p, 2));
+            fullPrice = p + tax;
+            count = 1;
+
         }
 
-        public float SalesTax()
+        public decimal SalesTax(decimal price)
         {
-            return 0;
+            decimal x = 0;
+
+
+            if(title.ToLower().Contains("import"))
+            {
+                x = price / 20;
+                
+            }
+
+            if (taxable)
+            {
+                x = price / 10;
+            }
+
+            roundTo5Cents(x);
+
+            return x;
+        }
+
+        public decimal roundTo5Cents(decimal x)
+        {
+            x = Math.Round(x, 2);
+            while( x % 5 !=0 )
+            {
+                x += 1;
+            }
+            return (decimal)x;
         }
 
     }

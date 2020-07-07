@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,34 +16,23 @@ namespace SalesTaxes
         public Form1()
         {
             InitializeComponent();
-            itemTaxes = new List<SaleItem>();
+            ItemCollection = new ItemCollection();
+            groupBox1.Text += "\n\r";
+            groupBox2.Text += "\n\r";
+            
 
         }
-        List<SaleItem> itemTaxes;
-        Dictionary<SaleItem, float> KVPitemTaxes;
+        ItemCollection ItemCollection;
         private void button1_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length>0 && textBox2.Text.Length >0)
-            {
-                itemTaxes.Add(new SaleItem(textBox1.Text, float.Parse(textBox2.Text)));
-            }
+            ItemCollection.AddItems(textBox1.Text, textBox2.Text);
+
+            groupBox2.Text += textBox1.Text + " at " + textBox2.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var total = 0.0;
-            var salesTax = 0.0;
-            foreach(SaleItem item in itemTaxes)
-            {
-                groupBox1.Text += item.title + " : " + item.price + item.tax;
-                total += (item.price + item.tax);
-                salesTax += item.tax;
-                groupBox1.Text += "\n\r";
-            }
-
-            groupBox1.Text += "Sales Tax : " + salesTax + "\n\r";
-            groupBox1.Text += "Total : " + total + "\n\r";
-
+            groupBox1.Text = ItemCollection.ShowItems();
         }
     }
 }
