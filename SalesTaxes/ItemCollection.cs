@@ -8,41 +8,49 @@ namespace SalesTaxes
 {
     class ItemCollection
     {
-        List<SaleItem> itemTaxes;
-        List<String> displayInput;
-        List<string> UntaxableItems;
+        public List<SaleItem> itemTaxes;
+        public List<String> displayInput;
+        public List<string> UntaxableItems;
 
         public ItemCollection()
         {
             itemTaxes = new List<SaleItem>();
             displayInput = new List<string>();
 
+            //there is a text file with a list of "untaxable items" in the Debug folder
+            //other items that shouldn't be charged the 10% tax can be added there
             UntaxableItems = System.IO.File.ReadAllLines(@".\UntaxableItems.txt").ToList<string>();
 
         }
 
+        //turns the given title and price into an object and holds it in a list
+        //this object calculates it tax and full price to display later
+        //this class also holds a list of strings to show items input by the user before the full price and tax is calculated
         public void AddItems(string ItemTitle, string Price)
         {
-            if (ItemTitle.Length > 0 && Price.Length > 0)
+            
+            if (ItemTitle.Length > 0 && Price.Length > 0)//do not add an item if there is not both an item and a price
             {
-                int index = itemTaxes.FindIndex(y => y.title == ItemTitle);
+                //if the item already exists, only increase the count,
+                //otherwise, add a new item with the given title and price
+                int index = itemTaxes.FindIndex(y => y.title == ItemTitle); 
                 if (index >= 0)
                 {
                     itemTaxes[index].count += 1;
                 }
                 else
                 {
-                    var isTaxable = UntaxableItems.FindIndex(y => ItemTitle.ToLower().Contains(y)) >= 0;
+                    var isTaxable = UntaxableItems.FindIndex(y => ItemTitle.ToLower().Contains(y)) < 0;
                     itemTaxes.Add(new SaleItem(ItemTitle, decimal.Parse(Price), isTaxable));
                 }
-
+                
                 displayInput.Add("1 " + ItemTitle + " at " + Price);
             }
         }
 
         public string ShowItems()
         {
-            string display = "\n\r";
+            string display = "\n\r\n\r";
             decimal total = 0M;
             decimal salesTax = 0M;
 
@@ -58,11 +66,11 @@ namespace SalesTaxes
                 }
                 total += item.fullPrice; // (item.price + item.tax);
                 salesTax += item.tax;
-                display += "\n\r";
+                display += "\n\r\n\r";
             }
 
-            display += "Sales Tax : " + salesTax + "\n\r";
-            display += "Total : " + total + "\n\r";
+            display += "Sales Tax : " + salesTax + "\n\r\n\r";
+            display += "Total : " + total + "\n\r\n\r";
 
             return display;
         }

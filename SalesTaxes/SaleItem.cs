@@ -14,13 +14,13 @@ namespace SalesTaxes
         public int count;
         public bool taxable;
 
-        public SaleItem(string t, decimal p, bool taxable)
+        public SaleItem(string t, decimal p, bool isTaxable)
         {
-            title = t;
-            tax = SalesTax(Math.Round(p, 2));
+            title = t; 
+            taxable = isTaxable;
+            tax = SalesTax(p);
             fullPrice = p + tax;
             count = 1;
-
         }
 
         public decimal SalesTax(decimal price)
@@ -30,27 +30,17 @@ namespace SalesTaxes
 
             if(title.ToLower().Contains("import"))
             {
-                x = price / 20;
+                x += price / 20;
                 
             }
 
             if (taxable)
             {
-                x = price / 10;
+                x += (price / 10);
             }
 
-            roundTo5Cents(x);
+            x = Math.Round(x, 2, MidpointRounding.AwayFromZero);
 
-            return x;
-        }
-
-        public decimal roundTo5Cents(decimal x)
-        {
-            x = Math.Round(x, 2);
-            while( x % 5 !=0 )
-            {
-                x += 1;
-            }
             return (decimal)x;
         }
 

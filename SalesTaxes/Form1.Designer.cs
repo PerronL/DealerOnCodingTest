@@ -39,9 +39,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.saleItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.saleItemBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.saleItemBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleItemBindingSource1)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +108,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(55, 247);
+            this.button2.Location = new System.Drawing.Point(610, 86);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 8;
@@ -120,7 +120,7 @@
             // 
             this.groupBox1.Location = new System.Drawing.Point(454, 145);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 95);
+            this.groupBox1.Size = new System.Drawing.Size(200, 293);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
@@ -134,6 +134,15 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Total:";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Location = new System.Drawing.Point(55, 146);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(393, 292);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
             // saleItemBindingSource
             // 
             this.saleItemBindingSource.DataSource = typeof(SalesTaxes.SaleItem);
@@ -141,15 +150,6 @@
             // saleItemBindingSource1
             // 
             this.saleItemBindingSource1.DataSource = typeof(SalesTaxes.SaleItem);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Location = new System.Drawing.Point(55, 146);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(393, 100);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
             // 
             // Form1
             // 

@@ -28,11 +28,13 @@ namespace SalesTaxes
             ItemCollection.AddItems(textBox1.Text, textBox2.Text);
 
             groupBox2.Text += textBox1.Text + " at " + textBox2.Text;
+            groupBox2.Text += "\n\r";
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             groupBox1.Text = ItemCollection.ShowItems();
+            ItemCollection.itemTaxes.Clear();
         }
     }
 }
